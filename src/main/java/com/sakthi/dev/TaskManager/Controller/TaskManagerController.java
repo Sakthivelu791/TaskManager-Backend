@@ -39,7 +39,7 @@ public class TaskManagerController {
         Long TaskId =taskManager.getId();
         TaskManager TaskDetail=taskmanagerServices.findId(TaskId);
 
-        if(getCurrentUserId() != TaskDetail.getUserId())
+        if(!getCurrentUserId().equals(TaskDetail.getUserId()))
         {
             return new ResponseEntity<>("Invalid Access", HttpStatus.UNAUTHORIZED);
         }
@@ -57,7 +57,7 @@ public class TaskManagerController {
         Long TaskId =taskManager.getId();
         TaskManager TaskDetail=taskmanagerServices.findId(TaskId);
 
-        if(getCurrentUserId() != TaskDetail.getUserId())
+        if(!getCurrentUserId().equals(TaskDetail.getUserId()))
         {
             return new ResponseEntity<>("Invalid Access", HttpStatus.UNAUTHORIZED);
         }
